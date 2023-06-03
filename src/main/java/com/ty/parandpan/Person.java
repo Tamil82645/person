@@ -1,15 +1,29 @@
 package com.ty.parandpan;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Person {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
 	private String address;
 	private long phno;
+	@OneToOne
+	private PanCard panCard;
 	
 	
+	public PanCard getPanCard() {
+		return panCard;
+	}
+	public void setPanCard(PanCard panCard) {
+		this.panCard = panCard;
+	}
 	public int getId() {
 		return id;
 	}
